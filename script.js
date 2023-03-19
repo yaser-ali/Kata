@@ -19,7 +19,7 @@ for (var i = 0; i < addToCartBtn.length; i++) {
     button.addEventListener('click', addToCartClicked);
 }
 
-document.getElementsByClassName('purchaseBtn')[0].addEventListener('click', purchase);
+document.getElementsByClassName('purchase-btn')[0].addEventListener('click', purchase);
 
 function purchase() {
     alert('Thank you for your purchase')
@@ -85,9 +85,10 @@ function AddItemToCart(title, price) {
             <button class="remove-btn">Remove</button>
         </div>`;
     cartRow.innerHTML = cartContent;
+    localStorage.setItem(cartContent, cartRow);
+    localStorage.getItem(cartRow);
     cartItems.append(cartRow);
 
-    //Delays the event listeners of remove button and cart-quantity
     cartRow.getElementsByClassName('remove-btn')[0].addEventListener('click', removeItems);
     cartRow.getElementsByClassName('quantity-input')[0].addEventListener('change', quantityChanged);
 

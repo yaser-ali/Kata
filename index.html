@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kata CDL</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <div class="grid-container">
+    
     <div class="item">
         <span class="title" id="item-a">A</span>
-        <span class="price">0.50</span>
+        £<span class="price">0.50</span>
         <button type="button" class="item-add">Add to Cart</button>
     </div>
     <div class="item">
         <span class="title" id="item-b">B</span>
-        <span class="price">0.30</span>
+        £<span class="price">0.30</span>
         <button type="button" class="item-add">Add to Cart</button>
     </div>
     <div class="item">
         <span class="title">C</span>
-        <span class="price">0.20</span>
+        £<span class="price">0.20</span>
         <button type="button" class="item-add">Add to Cart</button>
     </div>
     <div class="item">
         <span class="title">D</span>
-        <span class="price">0.15</span>
+        £<span class="price">0.15</span>
         <button type="button" class="item-add">Add to Cart</button>
     </div>
+</div>
 
     <div class="cart">
         <h2>Cart:</h2>
@@ -46,12 +49,9 @@
         <span class="total">£0</span>
     </div>
 
-
-
-
     <!-- For demonstration purposes we will have the purchase button -->
     <div class="buyBtn">
-        <button class="purchaseBtn">Buy Items</button>
+        <button class="purchase-btn">Buy Items</button>
     </div>
 
 </body>
