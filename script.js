@@ -113,13 +113,13 @@ function updateCartTotal() {
         // console.log(priceValue);
         // console.log(cartTitle);
         // console.log(cartQuantity);
+    }
+    if (cartTitle.innerText == "A" && cartQuantity.value >= 3) {
+        total = total - 0.20;
 
-        if (priceValue.innerText == "£0.50" && cartTitle.innerText == "A" && cartQuantity.value == 3) {
-            total = 1.3;
-        }
-        if (priceValue.innerText == "£0.30" && cartTitle.innerText == 'B' && cartQuantity.value == 2) {
-            total = 0.45;
-        }
+    }
+    if (cartTitle.innerText == 'B' && cartQuantity.value >= 2) {
+        total = total - 0.15;
     }
 
     total = Math.round(total * 100) / 100;
