@@ -70,7 +70,7 @@ function AddItemToCart(title, price) {
     for (var i = 0; i < cartItemName.length; i++) {
         if (cartItemName[i].innerText === title) {
             alert('This item is already in the cart');
-            return
+            return;
         }
     }
 
@@ -83,8 +83,7 @@ function AddItemToCart(title, price) {
         <label for="cart-quantity">Quantity:</label>
             <input type="number" class="quantity-input" name="quantity-input" value="1">
             <button class="remove-btn">Remove</button>
-        </div>
-        <label for="cart-total">Total: </label>`;
+        </div>`;
     cartRow.innerHTML = cartContent;
     cartItems.append(cartRow);
 
@@ -99,29 +98,31 @@ function updateCartTotal() {
     var cartRows = cartItems.getElementsByClassName('row');
     var total = 0;
     for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i]
-        var priceValue = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityValue = cartRow.getElementsByClassName('quantity-input')[0]
+        var cartRow = cartRows[i];
+        var priceValue = cartRow.getElementsByClassName('cart-price')[0];
+        var quantityValue = cartRow.getElementsByClassName('quantity-input')[0];
         var price = parseFloat(priceValue.innerHTML.replace('£', ''));
         var quantity = quantityValue.value;
         total = total + (price * quantity);
 
         var cartTitle = cartRow.getElementsByClassName('cart-item-title')[0];
-        var cartTotal = cartRow.getElementsByClassName('cart-total');
         var cartQuantity = cartRow.getElementsByClassName('quantity-input')[0];
     
-        // console.log(priceValue);
-        // console.log(cartTitle);
-        // console.log(cartQuantity);
-    }
-    if (cartTitle.innerText == "A" && cartQuantity.value >= 3) {
-        total = total - 0.20;
-
-    }
-    if (cartTitle.innerText == 'B' && cartQuantity.value >= 2) {
-        total = total - 0.15;
+        if (cartTitle.innerText == "A" && cartQuantity.value >= 3 || cartQuantity.value > 3) {
+            total = total - 0.20;
+        }
+        else if (cartTitle.innerText == "B" && cartQuantity.value >= 2 || cartQuantity.value > 2) {
+            total = total - 0.15;
+        }
+        else if (cartTitle.innerText == "A" && cartQuantity.value >= 3 && cartTitle.innerText == 'B' && cartQuantity.value >= 2)
+        {
+            total = total - 0.20;
+        }
+        else {
+            // if the above conditional statements don't reach to the exact value.
+        }
     }
 
     total = Math.round(total * 100) / 100;
-    document.getElementsByClassName('cart-total')[0].innerText = '£' + total;
+    document.getElementsByClassName('total')[0].innerText = '£' + total;
 }
