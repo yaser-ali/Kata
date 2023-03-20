@@ -33,10 +33,10 @@ body {
 
 .cart-total {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
     padding: 10px;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 button {
@@ -67,6 +67,12 @@ button {
 .buyBtn {
     display: flex;
     flex-direction: column;
+    padding: 20px;
+}
+
+#myBtn {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 660px) {
@@ -81,3 +87,98 @@ button {
         flex-direction: column;
     }
 }
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+    
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    padding: 20px;
+    animation-duration: 0.4s
+  }
+  
+ /* The Close Button */
+.close {
+    color: #aaa;
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -600px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+  #cart-counter {
+    display:inline-block;
+    width:20px;
+    opacity:0;
+    height:20px;
+    background:#ff0000;
+    text-align:center;
+    border-radius:50%;
+    margin-left:10px;
+  }
+  

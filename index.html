@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,52 +8,65 @@
     <title>Kata CDL</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
+
 <body>
     <div class="grid-container">
-    
-    <div class="item">
-        <span class="title" id="item-a">A</span>
-        £<span class="price">0.50</span>
-        <button type="button" class="item-add">Add to Cart</button>
-    </div>
-    <div class="item">
-        <span class="title" id="item-b">B</span>
-        £<span class="price">0.30</span>
-        <button type="button" class="item-add">Add to Cart</button>
-    </div>
-    <div class="item">
-        <span class="title">C</span>
-        £<span class="price">0.20</span>
-        <button type="button" class="item-add">Add to Cart</button>
-    </div>
-    <div class="item">
-        <span class="title">D</span>
-        £<span class="price">0.15</span>
-        <button type="button" class="item-add">Add to Cart</button>
-    </div>
-</div>
 
-    <div class="cart">
-        <h2>Cart:</h2>
-        <span class="cart-item"></span>
-        <span class="cart-price"></span>
-        <span class="cart-quantity"></span>
+        <div class="item">
+            <span class="title" id="item-a">A</span>
+            £<span class="price">0.50</span>
+            <button type="button" class="item-add">Add to Cart</button>
+        </div>
+        <div class="item">
+            <span class="title" id="item-b">B</span>
+            £<span class="price">0.30</span>
+            <button type="button" class="item-add">Add to Cart</button>
+        </div>
+        <div class="item">
+            <span class="title">C</span>
+            £<span class="price">0.20</span>
+            <button type="button" class="item-add">Add to Cart</button>
+        </div>
+        <div class="item">
+            <span class="title">D</span>
+            £<span class="price">0.15</span>
+            <button type="button" class="item-add">Add to Cart</button>
+        </div>
     </div>
 
-    <div class="cart-items">
-        <!-- All items of whichever product you choose goes into this div here. -->
-    </div>
 
-    <div class="cart-total">
-        <b>Total:</b>
-        <span class="total">£0</span>
-    </div>
+    <!-- Modal content -->
+    <div id="myModal" class="modal">
 
-    <!-- For demonstration purposes we will have the purchase button -->
-    <div class="buyBtn">
-        <button class="purchase-btn">Buy Items</button>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="cart">
+                <!-- <h2>Cart:</h2> -->
+                <span class="cart-item"></span>
+                <span class="cart-price"></span>
+                <span class="cart-quantity"></span>
+            </div>
+            <div class="cart-items">
+                <!-- All items of whichever product you choose goes into this div here. -->
+            </div>
+            <div class="cart-total">
+                <b>Total:</b>
+                <span class="total">£0</span>
+            </div>
+
+            <!-- For demonstration purposes we will have the purchase button -->
+            <div class="buyBtn">
+                <button class="purchase-btn">Buy Items</button>
+            </div>
+        </div>
+
+
     </div>
+    <button id="myBtn">Open Cart <span id='cart-counter'>0</span></button>
+
 
 </body>
+
 </html>

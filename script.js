@@ -84,10 +84,9 @@ function AddItemToCart(title, price) {
         </div>`;
     cartRow.innerHTML = cartContent;
     cartItems.append(cartRow);
-    
+
     cartRow.getElementsByClassName('remove-btn')[0].addEventListener('click', removeItems);
     cartRow.getElementsByClassName('quantity-input')[0].addEventListener('change', quantityChanged);
-
 }
 
 function updateCartTotal() {
@@ -103,15 +102,14 @@ function updateCartTotal() {
         total = total + (price * quantity);
 
         var cartTitle = cartRow.getElementsByClassName('cart-item-title')[0];
-    
+
         if (cartTitle.innerText == "A" && quantityValue.value >= 3 || quantityValue.value > 3) {
             total = total - 0.20;
         }
         else if (cartTitle.innerText == "B" && quantityValue.value >= 2 || quantityValue.value > 2) {
             total = total - 0.15;
         }
-        else if (cartTitle.innerText == "A" && quantityValue.value >= 3 && cartTitle.innerText == 'B' && quantityValue.value >= 2)
-        {
+        else if (cartTitle.innerText == "A" && quantityValue.value >= 3 && cartTitle.innerText == 'B' && quantityValue.value >= 2) {
             total = total - 0.20;
         }
         else {
@@ -122,3 +120,62 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('total')[0].innerText = '£' + total;
 }
+
+
+//Testing out ways to open a cart.
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+$(document).ready(function () {
+    //create variable
+    var counts = 0;
+    if (counts < 1) {
+    $(".item-add").click(function () {
+            //to number and increase to 1 on each click
+            counts += 1;
+            $("#cart-counter").animate({
+                //show span with number
+                opacity: 1
+            }, 300, function () {
+                //write number of counts into span
+                $(this).text(counts);
+            });
+            $(".remove-btn").click(function () {
+                //to number and increase to 1 on each click
+                counts -= 1;
+                $("#cart-counter").animate({
+                    //show span with number
+                    opacity: 1
+                }, 300, function () {
+                    //write number of counts into span
+                    $(this).text(counts);
+                });
+            });
+        });
+    }
+});
