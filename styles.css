@@ -176,9 +176,10 @@ button {
     width:20px;
     opacity:0;
     height:20px;
-    background:#ff0000;
+    background:#ffffff;
     text-align:center;
     border-radius:50%;
     margin-left:10px;
+    color: rgba(0, 0, 0, 0.8);
   }
   
