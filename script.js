@@ -44,11 +44,9 @@ function quantityChanged(event) {
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1;
     }
+
     updateCartTotal();
 }
-
-
-
 
 function addToCartClicked(event) {
     var btn = event.target;
@@ -81,8 +79,8 @@ function AddItemToCart(title, price) {
         <span class="cart-price">£${price}</span>
         <div class="cart-col-quantity">
         <label for="cart-quantity">Quantity:</label>
-            <input type="number" class="quantity-input" name="quantity-input" value="1">
-            <button class="remove-btn">Remove</button>
+        <input type="number" class="quantity-input" name="quantity-input" value="1">
+        <button class="remove-btn">Remove</button>
         </div>`;
     cartRow.innerHTML = cartContent;
     localStorage.setItem(cartContent, cartRow);
@@ -107,15 +105,14 @@ function updateCartTotal() {
         total = total + (price * quantity);
 
         var cartTitle = cartRow.getElementsByClassName('cart-item-title')[0];
-        var cartQuantity = cartRow.getElementsByClassName('quantity-input')[0];
     
-        if (cartTitle.innerText == "A" && cartQuantity.value >= 3 || cartQuantity.value > 3) {
+        if (cartTitle.innerText == "A" && quantityValue.value >= 3 || quantityValue.value > 3) {
             total = total - 0.20;
         }
-        else if (cartTitle.innerText == "B" && cartQuantity.value >= 2 || cartQuantity.value > 2) {
+        else if (cartTitle.innerText == "B" && quantityValue.value >= 2 || quantityValue.value > 2) {
             total = total - 0.15;
         }
-        else if (cartTitle.innerText == "A" && cartQuantity.value >= 3 && cartTitle.innerText == 'B' && cartQuantity.value >= 2)
+        else if (cartTitle.innerText == "A" && quantityValue.value >= 3 && cartTitle.innerText == 'B' && quantityValue.value >= 2)
         {
             total = total - 0.20;
         }
@@ -127,3 +124,4 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('total')[0].innerText = '£' + total;
 }
+

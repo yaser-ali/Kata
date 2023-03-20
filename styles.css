@@ -3,25 +3,15 @@ body {
 }
 
 .item {
-    /* display: grid; */
-    /* grid-template-columns: auto auto auto; */
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    /* align-content: center; */
-    /* padding: 25px; */
-    /* text-align: center; */
-
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    /* font-size: 30px; */
     text-align: center;
-
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     background-color: #e2e2e2;
     padding: 10px;
 }
@@ -36,15 +26,15 @@ body {
 .row {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 18px;
+    padding: 2px;
+    font-size: 17px;
     text-align: center;
 }
 
 .cart-total {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 10px;
     font-size: 20px;
     text-align: center;
 }
@@ -53,8 +43,7 @@ button {
     display: inline-block;
     border: none;
     color: white;
-    padding: 15px;
-    text-decoration: center;
+    padding: 10px;
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
@@ -73,4 +62,22 @@ button {
 .purchase-btn {
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
+}
+
+.buyBtn {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 660px) {
+    .grid-container {
+        max-width: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+    .cart-items {
+        max-width: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
 }
