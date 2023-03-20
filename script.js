@@ -83,10 +83,8 @@ function AddItemToCart(title, price) {
         <button class="remove-btn">Remove</button>
         </div>`;
     cartRow.innerHTML = cartContent;
-    localStorage.setItem(cartContent, cartRow);
-    localStorage.getItem(cartRow);
     cartItems.append(cartRow);
-
+    
     cartRow.getElementsByClassName('remove-btn')[0].addEventListener('click', removeItems);
     cartRow.getElementsByClassName('quantity-input')[0].addEventListener('change', quantityChanged);
 
@@ -124,4 +122,3 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('total')[0].innerText = '£' + total;
 }
-
