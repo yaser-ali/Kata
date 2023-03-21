@@ -31,20 +31,12 @@ function purchase() {
 }
 
 
-function removeItems(event) {
-    //Event parameter for when a button has been clicked which will imediately trigger an event.
-    var buttonClicked = event.target;
-    //Two parent elements because it removes the title, price and quantity elements.
-    buttonClicked.parentElement.parentElement.remove();
-    updateCartTotal();
-}
 
 function quantityChanged(event) {
     var input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1;
     }
-
     updateCartTotal();
 }
 
@@ -54,6 +46,24 @@ function addToCartClicked(event) {
     var title = item.getElementsByClassName("title")[0].innerText;
     var price = item.getElementsByClassName("price")[0].innerText;
     AddItemToCart(title, price);
+
+    let cartCounter = document.getElementById('cart-counter').innerText;
+    value = Number(cartCounter) + 1;
+    document.getElementById('cart-counter').innerText = value;
+
+    updateCartTotal();
+}
+
+function removeItems(event) {
+    //Event parameter for when a button has been clicked which will imediately trigger an event.
+    var buttonClicked = event.target;
+    //Two parent elements because it removes the title, price and quantity elements.
+    buttonClicked.parentElement.parentElement.remove();
+
+    let cartCounter = document.getElementById('cart-counter').innerText;
+    value = cartCounter - 1;
+    document.getElementById('cart-counter').innerText = value;
+
     updateCartTotal();
 }
 
@@ -68,7 +78,10 @@ function AddItemToCart(title, price) {
     for (var i = 0; i < cartItemName.length; i++) {
         if (cartItemName[i].innerText === title) {
             alert('This item is already in the cart');
-            return;            
+            let cartCounter = document.getElementById('cart-counter').innerText;
+            value = cartCounter - 1;
+            document.getElementById('cart-counter').innerText = value;
+            return;
         }
         
     }
@@ -151,45 +164,30 @@ window.onclick = function (event) {
     }
 }
 
-
-//Jquery
-$(document).ready(function () {
-    //Create count
-    let counts = 0;
-    if (counts < 1) {
-    $(".item-add").click(function () {
-            //to number and increase to 1 on each click
-            counts += 1;
-            $("#cart-counter").animate({
-                //show span with number
-                opacity: 1
-            }, 300, function () {
-                //write number of counts into span
-                $(this).text(counts);
-            });
-            $(".remove-btn").click(function () {
-                //to number and increase to 1 on each click
-                counts -= 1;
-                $("#cart-counter").animate({
-                    //show span with number
-                    opacity: 1
-                }, 300, function () {
-                    //write number of counts into span
-                    $(this).text(counts);
-                });
-            });
-    });
-    }
-    else if (counts > 1) {
-            $(".row").change(function () {
-                counts -= 1;
-                $("#cart-counter").animate({
-                    //show span with number
-                    opacity: 1
-                }, 300, function () {
-                    //write number of counts into span
-                    $(this).text(counts);
-                });
-            });
-        }
-});
+// //Jquery
+// $(document).ready(function () {
+//     //Create count
+//     let counts = 0;
+//     $(".item-add").click(function () {
+//             //to number and increase to 1 on each click
+//             counts += 1;
+//             $("#cart-counter").animate({
+//                 //show span with number
+//                 opacity: 1
+//             }, 300, function () {
+//                 //write number of counts into span
+//                 $(this).text(counts);
+//             });
+//             $(".remove-btn").click(function () {
+//                 //to number and increase to 1 on each click
+//                 counts -= 1;
+//                 $("#cart-counter").animate({
+//                     //show span with number
+//                     opacity: 1
+//                 }, 300, function () {
+//                     //write number of counts into span
+//                     $(this).text(counts);
+//                 });
+//             });
+//     });
+// });

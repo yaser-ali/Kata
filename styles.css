@@ -174,7 +174,7 @@ button {
   #cart-counter {
     display:inline-block;
     width:20px;
-    opacity:0;
+    /* opacity:0; */
     height:20px;
     background:#ffffff;
     text-align:center;
@@ -183,3 +183,49 @@ button {
     color: rgba(0, 0, 0, 0.8);
   }
   
+
+  a {
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  header {
+    display: flex;
+    position:sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #3d3d3d;
+    text-align: center;
+    padding: 1rem 0.1rem;
+    justify-content: center;
+    transition: all 0.2s;  
+  }
+  
+  header nav a {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+  }
+  
+  header nav a:hover,
+  header nav a.active {
+    background: #ffffff;
+    color: #42455a;
+    transition: 0.5s ease-out;
+    letter-spacing: 2px;
+  }
+
+  .item-add:hover,
+  .item-add.hover  {
+    background: #000000;
+    color: #42455a;
+    transition: 0.1s ease-out;
+    letter-spacing: 1px;
+  }
