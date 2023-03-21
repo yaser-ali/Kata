@@ -68,8 +68,9 @@ function AddItemToCart(title, price) {
     for (var i = 0; i < cartItemName.length; i++) {
         if (cartItemName[i].innerText === title) {
             alert('This item is already in the cart');
-            return;
+            return;            
         }
+        
     }
 
     var cartContent = `<div class="cart-col-Title">
@@ -151,9 +152,10 @@ window.onclick = function (event) {
 }
 
 
+//Jquery
 $(document).ready(function () {
-    //create variable
-    var counts = 0;
+    //Create count
+    let counts = 0;
     if (counts < 1) {
     $(".item-add").click(function () {
             //to number and increase to 1 on each click
@@ -176,6 +178,18 @@ $(document).ready(function () {
                     $(this).text(counts);
                 });
             });
-        });
+    });
     }
+    else if (counts > 1) {
+            $(".row").change(function () {
+                counts -= 1;
+                $("#cart-counter").animate({
+                    //show span with number
+                    opacity: 1
+                }, 300, function () {
+                    //write number of counts into span
+                    $(this).text(counts);
+                });
+            });
+        }
 });
